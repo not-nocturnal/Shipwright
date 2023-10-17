@@ -797,6 +797,37 @@ int ShuffleAllEntrances() {
     {{EntranceType::SpecialInterior, KAK_BACKYARD,                     KAK_POTION_SHOP_BACK,                 0x03EC},
      {EntranceType::SpecialInterior, KAK_POTION_SHOP_BACK,             KAK_BACKYARD,                         0x04FF}},
 
+     // Thieves' Hideout entrances are not expected to be used with logic (for now). Might be problematic even in
+     // no-logic; no idea if potentially completely unreachable closed loops are prevented by the randomizer in any way.
+     // Hopefully the entrance names are intuitive enough.
+     // Should be added as a standalone option if this works.
+    {{EntranceType::SpecialInterior, GF_1F_LEFT,                       TH_1_TORCH_JAIL_1_TURN,               0x0486},  
+     {EntranceType::SpecialInterior, TH_1_TORCH_JAIL_1_TURN,           GF_1F_LEFT,                           0x0231}}, // complete
+    {{EntranceType::SpecialInterior, GF_1F_CRATES_LEFT,                TH_1_TORCH_JAIL_0_TURNS,              0x048A}, 
+     {EntranceType::SpecialInterior, TH_1_TORCH_JAIL_0_TURNS,          GF_1F_CRATES_LEFT,                    0x0235}}, // complete
+    {{EntranceType::SpecialInterior, GF_1F_CRATES_MIDDLE,              TH_KITCHEN_HALLWAY_LOWER,             0x048E}, 
+     {EntranceType::SpecialInterior, TH_KITCHEN_HALLWAY_LOWER,         GF_1F_CRATES_MIDDLE,                  0x0239}}, // complete
+    {{EntranceType::SpecialInterior, GF_1F_RIGHT,                      TH_4_TORCH_JAIL_1_TURN,               0x0496},
+     {EntranceType::SpecialInterior, TH_4_TORCH_JAIL_1_TURN,           GF_1F_RIGHT,                          0x02BA}}, // complete
+    {{EntranceType::SpecialInterior, GF_2F_LEFT,                       TH_4_TORCH_JAIL_2_TURNS,              0x049A},
+     {EntranceType::SpecialInterior, TH_4_TORCH_JAIL_2_TURNS,          GF_2F_LEFT,                           0x02BE}}, // complete
+    {{EntranceType::SpecialInterior, GF_2F_MIDDLE,                     TH_KITCHEN_HALLWAY_UPPER,             0x0492},
+     {EntranceType::SpecialInterior, TH_KITCHEN_HALLWAY_UPPER,         GF_2F_MIDDLE,                         0x02AA}}, // complete
+    {{EntranceType::SpecialInterior, GF_2F_RIGHT,                      TH_2_TORCH_JAIL_LOWER,                0x049E},
+     {EntranceType::SpecialInterior, TH_2_TORCH_JAIL_LOWER,            GF_2F_RIGHT,                          0x02C2}}, // complete
+    {{EntranceType::SpecialInterior, GF_3F_LEFTMOST,                   TH_BREAK_ROOM_LOWER,                  0x04AE},
+     {EntranceType::SpecialInterior, TH_BREAK_ROOM_LOWER,              GF_3F_LEFTMOST,                       0x02DA}}, // complete
+    {{EntranceType::SpecialInterior, GF_3F_MID_LEFT,                   TH_3_TORCH_JAIL,                      0x0570},
+     {EntranceType::SpecialInterior, TH_3_TORCH_JAIL,                  GF_3F_MID_LEFT,                       0x03A4}}, // complete
+    {{EntranceType::SpecialInterior, GF_3F_MID_RIGHT,                  TH_KITCHEN_LEDGE_NEAR,                0x04A6},
+     {EntranceType::SpecialInterior, TH_KITCHEN_LEDGE_NEAR,            GF_3F_MID_RIGHT,                      0x02D2}}, // complete
+    {{EntranceType::SpecialInterior, GF_3F_RIGHTMOST,                  TH_2_TORCH_JAIL_UPPER,                0x04A2},
+     {EntranceType::SpecialInterior, TH_2_TORCH_JAIL_UPPER,            GF_3F_RIGHTMOST,                      0x02C6}}, // complete
+    {{EntranceType::SpecialInterior, GF_4F_MIDDLE,                     TH_KITCHEN_LEDGE_FAR,                 0x04AA},
+     {EntranceType::SpecialInterior, TH_KITCHEN_LEDGE_FAR,             GF_4F_MIDDLE,                         0x02D6}}, // complete
+    {{EntranceType::SpecialInterior, GF_BALCONY,                       TH_BREAK_ROOM_UPPER,                  0x04B2},
+     {EntranceType::SpecialInterior, TH_BREAK_ROOM_UPPER,              GF_BALCONY,                           0x02DE}}, // incomplete
+
      // Grotto Loads use an entrance index of 0x0700 + their grotto id. The id is used as index for the
      // grottoLoadTable in soh/soh/Enhancements/randomizer/randomizer_grotto.c
      // Grotto Returns use an entrance index of 0x0800 + their grotto id. The id is used as index for the
