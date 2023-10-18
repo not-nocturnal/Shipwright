@@ -117,6 +117,40 @@ void AreaTable_Init_GerudoValley() {
                   Entrance(GF_OUTSIDE_GATE,                  {[]{return GF_GateOpen;}}),
                   Entrance(GERUDO_TRAINING_GROUNDS_ENTRYWAY, {[]{return GtG_GateOpen && (IsAdult || ShuffleDungeonEntrances);}}),
                   Entrance(GF_STORMS_GROTTO,                 {[]{return IsAdult && CanOpenStormGrotto;}}),
+                  Entrance(GF_1F_LEFT,                       {[]{return true;}}),
+                  Entrance(GF_1F_CRATES_LEFT,                {[]{return true;}}),
+                  Entrance(GF_1F_CRATES_MIDDLE,              {[]{return true;}}),
+                  Entrance(GF_1F_RIGHT,                      {[]{return true;}}),
+                  Entrance(GF_2F_LEFT,                       {[]{return true;}}),
+                  Entrance(GF_2F_MIDDLE,                     {[]{return true;}}),
+                  Entrance(GF_2F_RIGHT,                      {[]{return true;}}),
+                  Entrance(GF_3F_LEFTMOST,                   {[]{return true;}}),
+                  Entrance(GF_3F_MID_LEFT,                   {[]{return true;}}),
+                  Entrance(GF_3F_MID_RIGHT,                  {[]{return true;}}),
+                  Entrance(GF_3F_RIGHTMOST,                  {[]{return true;}}),
+                  Entrance(GF_4F_MIDDLE,                     {[]{return true;}}),
+                  Entrance(GF_BALCONY,                       {[]{return true;}}),
+  });
+
+  areaTable[THIEVES_HIDEOUT] = Area("Thieves' Hideout", "Thieves' Hideout", THIEVES_HIDEOUT, NO_DAY_NIGHT_CYCLE, {
+                  //Events
+                }, {
+                  //Locations
+                }, {
+                  //Exits
+                  Entrance(TH_1_TORCH_JAIL_1_TURN,                {[]{return true;}}),
+                  Entrance(TH_1_TORCH_JAIL_0_TURNS,               {[]{return true;}}),
+                  Entrance(TH_2_TORCH_JAIL_LOWER,                 {[]{return true;}}),
+                  Entrance(TH_2_TORCH_JAIL_UPPER,                 {[]{return true;}}),
+                  Entrance(TH_3_TORCH_JAIL,                       {[]{return true;}}),
+                  Entrance(TH_4_TORCH_JAIL_1_TURN,                {[]{return true;}}),
+                  Entrance(TH_4_TORCH_JAIL_2_TURNS,               {[]{return true;}}),
+                  Entrance(TH_KITCHEN_HALLWAY_LOWER,              {[]{return true;}}),
+                  Entrance(TH_KITCHEN_HALLWAY_UPPER,              {[]{return true;}}),
+                  Entrance(TH_KITCHEN_LEDGE_NEAR,                 {[]{return true;}}),
+                  Entrance(TH_KITCHEN_LEDGE_FAR,                  {[]{return true;}}),
+                  Entrance(TH_BREAK_ROOM_LOWER,                   {[]{return true;}}),
+                  Entrance(TH_BREAK_ROOM_UPPER,                   {[]{return true;}}),
   });
 
   areaTable[GF_OUTSIDE_GATE] = Area("GF Outside Gate", "Gerudo Fortress", NONE, NO_DAY_NIGHT_CYCLE, {
