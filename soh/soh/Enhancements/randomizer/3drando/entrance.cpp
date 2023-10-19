@@ -797,10 +797,7 @@ int ShuffleAllEntrances() {
     {{EntranceType::SpecialInterior, KAK_BACKYARD,                     KAK_POTION_SHOP_BACK,                 0x03EC},
      {EntranceType::SpecialInterior, KAK_POTION_SHOP_BACK,             KAK_BACKYARD,                         0x04FF}},
 
-     // Thieves' Hideout entrances are not expected to be used with logic (for now). Might be problematic even in
-     // no-logic; no idea if potentially completely unreachable closed loops are prevented by the randomizer in any way.
-     // Hopefully the entrance names are intuitive enough.
-     // Should be added as a standalone option if this works.
+     // Thieves' Hideout entrances are tacked on to SpecialInterior for testing
     {{EntranceType::SpecialInterior, GF_1F_LEFT,                       TH_1_TORCH_JAIL_1_TURN,               0x0486},  
      {EntranceType::SpecialInterior, TH_1_TORCH_JAIL_1_TURN,           GF_1F_LEFT,                           0x0231}},
     {{EntranceType::SpecialInterior, GF_1F_CRATES_LEFT,                TH_1_TORCH_JAIL_0_TURNS,              0x048A}, 
