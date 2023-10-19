@@ -133,10 +133,6 @@ void AreaTable_Init_GerudoValley() {
   });
 
   areaTable[THIEVES_HIDEOUT] = Area("Thieves' Hideout", "Thieves' Hideout", THIEVES_HIDEOUT, NO_DAY_NIGHT_CYCLE, {
-                  //Events
-                }, {
-                  //Locations
-                }, {
                   //Exits
                   Entrance(TH_1_TORCH_JAIL_1_TURN,                {[]{return true;}}),
                   Entrance(TH_1_TORCH_JAIL_0_TURNS,               {[]{return true;}}),
