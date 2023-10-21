@@ -337,7 +337,7 @@ const EntranceData entranceData[] = {
     { 0x0239, 0x048E, SINGLE_SCENE_INFO(0x5D), "TH Kitchen Hallway",      "GF",                      ENTRANCE_GROUP_GERUDO_VALLEY, ENTRANCE_GROUP_GERUDO_VALLEY,     ENTRANCE_TYPE_INTERIOR,  "gerudo fortress,th"},
     { 0x02AA, 0x0492, SINGLE_SCENE_INFO(0x5D), "TH Kitchen Hallway",      "GF",                      ENTRANCE_GROUP_GERUDO_VALLEY, ENTRANCE_GROUP_GERUDO_VALLEY,     ENTRANCE_TYPE_INTERIOR,  "gerudo fortress,th"},
     { 0x02D2, 0x04A6, SINGLE_SCENE_INFO(0x5D), "TH Kitchen Ledge Near",   "GF",                      ENTRANCE_GROUP_GERUDO_VALLEY, ENTRANCE_GROUP_GERUDO_VALLEY,     ENTRANCE_TYPE_INTERIOR,  "gerudo fortress,th"},
-    { 0x02C6, 0x04A2, SINGLE_SCENE_INFO(0x5D), "TH Kitchen Ledge Far",    "GF",                      ENTRANCE_GROUP_GERUDO_VALLEY, ENTRANCE_GROUP_GERUDO_VALLEY,     ENTRANCE_TYPE_INTERIOR,  "gerudo fortress,th"},
+    { 0x02D6, 0x04AA, SINGLE_SCENE_INFO(0x5D), "TH Kitchen Ledge Far",    "GF",                      ENTRANCE_GROUP_GERUDO_VALLEY, ENTRANCE_GROUP_GERUDO_VALLEY,     ENTRANCE_TYPE_INTERIOR,  "gerudo fortress,th"},
     { 0x02DA, 0x04AE, SINGLE_SCENE_INFO(0x5D), "TH Break Room Lower",     "GF",                      ENTRANCE_GROUP_GERUDO_VALLEY, ENTRANCE_GROUP_GERUDO_VALLEY,     ENTRANCE_TYPE_INTERIOR,  "gerudo fortress,th"},
     { 0x02DE, 0x04B2, SINGLE_SCENE_INFO(0x5D), "TH Break Room Upper",     "GF",                      ENTRANCE_GROUP_GERUDO_VALLEY, ENTRANCE_GROUP_GERUDO_VALLEY,     ENTRANCE_TYPE_INTERIOR,  "gerudo fortress,th"},
 
