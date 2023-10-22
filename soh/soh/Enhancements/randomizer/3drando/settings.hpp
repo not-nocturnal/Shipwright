@@ -386,6 +386,7 @@ typedef struct {
     uint8_t shuffleBossEntrances;
     uint8_t shuffleOverworldEntrances;
     uint8_t shuffleInteriorEntrances;
+    uint8_t shuffleHideoutEntrances;
     uint8_t shuffleGrottoEntrances;
     uint8_t shuffleOwlDrops;
     uint8_t shuffleWarpSongs;
@@ -394,6 +395,7 @@ typedef struct {
     uint8_t mixDungeons;
     uint8_t mixOverworld;
     uint8_t mixInteriors;
+    uint8_t mixHideout;
     uint8_t mixGrottos;
     uint8_t decoupleEntrances;
     uint8_t bombchusInLogic;
@@ -773,6 +775,7 @@ void UpdateSettings(std::unordered_map<RandomizerSettingKey, uint8_t> cvarSettin
   extern Option ShuffleBossEntrances;
   extern Option ShuffleOverworldEntrances;
   extern Option ShuffleInteriorEntrances;
+  extern Option ShuffleHideoutEntrances;
   extern Option ShuffleGrottoEntrances;
   extern Option ShuffleOwlDrops;
   extern Option ShuffleWarpSongs;
@@ -781,6 +784,7 @@ void UpdateSettings(std::unordered_map<RandomizerSettingKey, uint8_t> cvarSettin
   extern Option MixDungeons;
   extern Option MixOverworld;
   extern Option MixInteriors;
+  extern Option MixHideout;
   extern Option MixGrottos;
   extern Option DecoupleEntrances;
   extern Option BombchusInLogic;

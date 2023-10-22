@@ -302,6 +302,7 @@ std::unordered_map<std::string, RandomizerSettingKey> SpoilerfileSettingNameToEn
     { "World Settings:Boss Entrances", RSK_SHUFFLE_BOSS_ENTRANCES },
     { "World Settings:Overworld Entrances", RSK_SHUFFLE_OVERWORLD_ENTRANCES },
     { "World Settings:Interior Entrances", RSK_SHUFFLE_INTERIOR_ENTRANCES },
+    { "World Settings:Hideout Entrances", RSK_SHUFFLE_HIDEOUT_ENTRANCES },
     { "World Settings:Grottos Entrances", RSK_SHUFFLE_GROTTO_ENTRANCES },
     { "World Settings:Owl Drops", RSK_SHUFFLE_OWL_DROPS },
     { "World Settings:Warp Songs", RSK_SHUFFLE_WARP_SONGS },
@@ -310,6 +311,7 @@ std::unordered_map<std::string, RandomizerSettingKey> SpoilerfileSettingNameToEn
     { "World Settings:Mix Dungeons", RSK_MIX_DUNGEON_ENTRANCES },
     { "World Settings:Mix Overworld", RSK_MIX_OVERWORLD_ENTRANCES },
     { "World Settings:Mix Interiors", RSK_MIX_INTERIOR_ENTRANCES },
+    { "World Settings:Mix Hideout", RSK_MIX_HIDEOUT_ENTRANCES },
     { "World Settings:Mix Grottos", RSK_MIX_GROTTO_ENTRANCES },
     { "World Settings:Decouple Entrances", RSK_DECOUPLED_ENTRANCES },
     { "World Settings:Triforce Hunt", RSK_TRIFORCE_HUNT },
@@ -3027,6 +3029,7 @@ void GenerateRandomizerImgui(std::string seed = "") {
     cvarSettings[RSK_SHUFFLE_BOSS_ENTRANCES] = CVarGetInteger("gRandomizeShuffleBossEntrances", RO_BOSS_ROOM_ENTRANCE_SHUFFLE_OFF);
     cvarSettings[RSK_SHUFFLE_OVERWORLD_ENTRANCES] = CVarGetInteger("gRandomizeShuffleOverworldEntrances", RO_GENERIC_OFF);
     cvarSettings[RSK_SHUFFLE_INTERIOR_ENTRANCES] = CVarGetInteger("gRandomizeShuffleInteriorsEntrances", RO_INTERIOR_ENTRANCE_SHUFFLE_OFF);
+    cvarSettings[RSK_SHUFFLE_HIDEOUT_ENTRANCES] = CVarGetInteger("gRandomizeShuffleHideoutEntrances", RO_GENERIC_OFF);
     cvarSettings[RSK_SHUFFLE_GROTTO_ENTRANCES] = CVarGetInteger("gRandomizeShuffleGrottosEntrances", RO_GENERIC_OFF);
     cvarSettings[RSK_SHUFFLE_OWL_DROPS] = CVarGetInteger("gRandomizeShuffleOwlDrops", RO_GENERIC_OFF);
     cvarSettings[RSK_SHUFFLE_WARP_SONGS] = CVarGetInteger("gRandomizeShuffleWarpSongs", RO_GENERIC_OFF);
@@ -3035,6 +3038,7 @@ void GenerateRandomizerImgui(std::string seed = "") {
     cvarSettings[RSK_MIX_DUNGEON_ENTRANCES] = CVarGetInteger("gRandomizeMixDungeons", RO_GENERIC_OFF);
     cvarSettings[RSK_MIX_OVERWORLD_ENTRANCES] = CVarGetInteger("gRandomizeMixOverworld", RO_GENERIC_OFF);
     cvarSettings[RSK_MIX_INTERIOR_ENTRANCES] = CVarGetInteger("gRandomizeMixInteriors", RO_GENERIC_OFF);
+    cvarSettings[RSK_MIX_HIDEOUT_ENTRANCES] = CVarGetInteger("gRandomizeMixHideout", RO_GENERIC_OFF);
     cvarSettings[RSK_MIX_GROTTO_ENTRANCES] = CVarGetInteger("gRandomizeMixGrottos", RO_GENERIC_OFF);
     cvarSettings[RSK_DECOUPLED_ENTRANCES] = CVarGetInteger("gRandomizeDecoupleEntrances", RO_GENERIC_OFF);
 
@@ -3612,11 +3616,11 @@ void RandomizerSettingsWindow::DrawElement() {
                     "\n"
                     "Shuffling Ganon's Castle can be enabled separately.\n"
                     "\n"
-                    "Additionally, the entrances of Deku Tree, Fire Temple, Bottom of the Well and Gerudo Training Ground are opened for both child and adult.\n"
+                    "Additionally, the entrances of Deku Tree, Fire Temple, Bottom of the Well and Gerudo Training Grounds are opened for both child and adult.\n"
                     "\n"
                     "- Deku Tree will be open for adult after Mido has seen child Link with a sword and shield.\n"
                     "- Bottom of the Well will be open for adult after playing Song of Storms to the Windmill guy as child.\n"
-                    "- Gerudo Training Ground will be open for child after adult has paid to open the gate once."
+                    "- Gerudo Training Grounds will be open for child after adult has paid to open the gate once."
                 );
                 UIWidgets::EnhancementCombobox("gRandomizeShuffleDungeonsEntrances", randoShuffleDungeonsEntrances, RO_DUNGEON_ENTRANCE_SHUFFLE_OFF);
 
@@ -3660,6 +3664,16 @@ void RandomizerSettingsWindow::DrawElement() {
                     "- Kakariko Potion Shop"
                 );
                 UIWidgets::EnhancementCombobox("gRandomizeShuffleInteriorsEntrances", randoShuffleInteriorsEntrances, RO_INTERIOR_ENTRANCE_SHUFFLE_OFF);
+
+                UIWidgets::PaddedSeparator();
+
+                // Shuffle Hideout Entrances
+                UIWidgets::EnhancementCheckbox("Shuffle Hideout Entrances", "gRandomizeShuffleHideoutEntrances");
+                UIWidgets::InsertHelpHoverText(
+                    "Shuffle the pool of hideout entrances in Gerudo Fortress.\n"
+                    "\n"
+                    "This does not include Gerudo Training Grounds."
+                );
 
                 UIWidgets::PaddedSeparator();
 
@@ -3742,6 +3756,12 @@ void RandomizerSettingsWindow::DrawElement() {
                         ImGui::SetCursorPosX(20);
                         UIWidgets::EnhancementCheckbox("Mix Interiors", "gRandomizeMixInteriors");
                         UIWidgets::InsertHelpHoverText("Interior entrances will be part of the mixed pool");
+                    }
+                    if (CVarGetInteger("gRandomizeShuffleHideoutEntrances", RO_GENERIC_OFF)) {
+                        UIWidgets::Spacer(0);
+                        ImGui::SetCursorPosX(20);
+                        UIWidgets::EnhancementCheckbox("Mix Hideout", "gRandomizeMixHideout");
+                        UIWidgets::InsertHelpHoverText("Hideout entrances will be part of the mixed pool");
                     }
                     if (CVarGetInteger("gRandomizeShuffleGrottosEntrances", RO_GENERIC_OFF)) {
                         UIWidgets::Spacer(0);

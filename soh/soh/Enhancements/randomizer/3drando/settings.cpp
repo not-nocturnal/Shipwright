@@ -88,6 +88,7 @@ namespace Settings {
   Option ShuffleBossEntrances      = Option::U8  ("Boss Entrances",         {"Off", "Age Restricted", "Full"});
   Option ShuffleOverworldEntrances = Option::Bool("Overworld Entrances",    {"Off", "On"});
   Option ShuffleInteriorEntrances  = Option::U8  ("Interior Entrances",     {"Off", "Simple", "All"});
+  Option ShuffleHideoutEntrances   = Option::Bool("Hideout Entrances",      {"Off", "On"});
   Option ShuffleGrottoEntrances    = Option::Bool("Grottos Entrances",      {"Off", "On"});
   Option ShuffleOwlDrops           = Option::Bool("Owl Drops",              {"Off", "On"});
   Option ShuffleWarpSongs          = Option::Bool("Warp Songs",             {"Off", "On"});
@@ -96,6 +97,7 @@ namespace Settings {
   Option MixDungeons               = Option::Bool("Mix Dungeons",           {"Off", "On"});
   Option MixOverworld              = Option::Bool("Mix Overworld",          {"Off", "On"});
   Option MixInteriors              = Option::Bool("Mix Interiors",          {"Off", "On"});
+  Option MixHideout                = Option::Bool("Mix Hideout",            {"Off", "On"});
   Option MixGrottos                = Option::Bool("Mix Grottos",            {"Off", "On"});
   Option DecoupleEntrances         = Option::Bool("Decouple Entrances",     {"Off", "On"});
   Option BombchusInLogic           = Option::Bool("Bombchus in Logic",      {"Off", "On"});
@@ -129,6 +131,7 @@ namespace Settings {
     &ShuffleBossEntrances,
     &ShuffleOverworldEntrances,
     &ShuffleInteriorEntrances,
+    &ShuffleHideoutEntrances,
     &ShuffleGrottoEntrances,
     &ShuffleOwlDrops,
     &ShuffleWarpSongs,
@@ -137,6 +140,7 @@ namespace Settings {
     &MixDungeons,
     &MixOverworld,
     &MixInteriors,
+    &MixHideout,
     &MixGrottos,
     &DecoupleEntrances,
     &BombchusInLogic,
@@ -1287,6 +1291,7 @@ namespace Settings {
     ctx.shuffleBossEntrances    = ShuffleBossEntrances.Value<uint8_t>();
     ctx.shuffleOverworldEntrances = (ShuffleOverworldEntrances) ? 1 : 0;
     ctx.shuffleInteriorEntrances = ShuffleInteriorEntrances.Value<uint8_t>();
+    ctx.shuffleHideoutEntrances = (ShuffleHideoutEntrances) ? 1 : 0;
     ctx.shuffleGrottoEntrances  = (ShuffleGrottoEntrances) ? 1 : 0;
     ctx.shuffleOwlDrops         = (ShuffleOwlDrops) ? 1 : 0;
     ctx.shuffleWarpSongs        = (ShuffleWarpSongs) ? 1 : 0;
@@ -1295,6 +1300,7 @@ namespace Settings {
     ctx.mixDungeons             = (MixDungeons) ? 1 : 0;
     ctx.mixOverworld            = (MixOverworld) ? 1 : 0;
     ctx.mixInteriors            = (MixInteriors) ? 1 : 0;
+    ctx.mixHideout            = (MixHideout) ? 1 : 0;
     ctx.mixGrottos              = (MixGrottos) ? 1 : 0;
     ctx.decoupleEntrances       = (DecoupleEntrances) ? 1 : 0;
     ctx.bombchusInLogic         = (BombchusInLogic) ? 1 : 0;
@@ -1848,6 +1854,7 @@ namespace Settings {
         ShuffleBossEntrances.Unhide();
         ShuffleOverworldEntrances.Unhide();
         ShuffleInteriorEntrances.Unhide();
+        ShuffleHideoutEntrances.Unhide();
         ShuffleGrottoEntrances.Unhide();
         ShuffleOwlDrops.Unhide();
         ShuffleWarpSongs.Unhide();
@@ -1863,6 +1870,10 @@ namespace Settings {
         ShuffleOverworldEntrances.Hide();
         ShuffleInteriorEntrances.SetSelectedIndex(SHUFFLEINTERIORS_OFF);
         ShuffleInteriorEntrances.Hide();
+        ShuffleInteriorEntrances.SetSelectedIndex(OFF);
+        ShuffleInteriorEntrances.Hide();
+        ShuffleHideoutEntrances.SetSelectedIndex(OFF);
+        ShuffleHideoutEntrances.Hide();
         ShuffleGrottoEntrances.SetSelectedIndex(OFF);
         ShuffleGrottoEntrances.Hide();
         ShuffleOwlDrops.SetSelectedIndex(OFF);
@@ -1900,6 +1911,13 @@ namespace Settings {
           MixInteriors.SetSelectedIndex(OFF);
         }
 
+        if (ShuffleHideoutEntrances) {
+          MixHideout.Unhide();
+        } else {
+          MixHideout.Hide();
+          MixHideout.SetSelectedIndex(OFF);
+        }
+
         if (ShuffleGrottoEntrances) {
           MixGrottos.Unhide();
         } else {
@@ -1913,6 +1931,8 @@ namespace Settings {
         MixOverworld.SetSelectedIndex(OFF);
         MixInteriors.Hide();
         MixInteriors.SetSelectedIndex(OFF);
+        MixHideout.Hide();
+        MixHideout.SetSelectedIndex(OFF);
         MixGrottos.Hide();
         MixGrottos.SetSelectedIndex(OFF);
       }
@@ -2131,6 +2151,7 @@ namespace Settings {
       ShuffleBossEntrances.SetSelectedIndex(OFF);
       ShuffleOverworldEntrances.SetSelectedIndex(OFF);
       ShuffleInteriorEntrances.SetSelectedIndex(OFF);
+      ShuffleHideoutEntrances.SetSelectedIndex(OFF);
       ShuffleGrottoEntrances.SetSelectedIndex(OFF);
       ShuffleOwlDrops.SetSelectedIndex(OFF);
       ShuffleWarpSongs.SetSelectedIndex(OFF);
@@ -2143,6 +2164,7 @@ namespace Settings {
       MixDungeons.SetSelectedIndex(OFF);
       MixOverworld.SetSelectedIndex(OFF);
       MixInteriors.SetSelectedIndex(OFF);
+      MixHideout.SetSelectedIndex(OFF);
       MixGrottos.SetSelectedIndex(OFF);
     }
 
@@ -2285,6 +2307,7 @@ namespace Settings {
     ShuffleBossEntrances.SetSelectedIndex(cvarSettings[RSK_SHUFFLE_BOSS_ENTRANCES]);
     ShuffleOverworldEntrances.SetSelectedIndex(cvarSettings[RSK_SHUFFLE_OVERWORLD_ENTRANCES]);
     ShuffleInteriorEntrances.SetSelectedIndex(cvarSettings[RSK_SHUFFLE_INTERIOR_ENTRANCES]);
+    ShuffleHideoutEntrances.SetSelectedIndex(cvarSettings[RSK_SHUFFLE_HIDEOUT_ENTRANCES]);
     ShuffleGrottoEntrances.SetSelectedIndex(cvarSettings[RSK_SHUFFLE_GROTTO_ENTRANCES]);
     ShuffleOwlDrops.SetSelectedIndex(cvarSettings[RSK_SHUFFLE_OWL_DROPS]);
     ShuffleWarpSongs.SetSelectedIndex(cvarSettings[RSK_SHUFFLE_WARP_SONGS]);
@@ -2293,6 +2316,7 @@ namespace Settings {
     MixDungeons.SetSelectedIndex(cvarSettings[RSK_MIX_DUNGEON_ENTRANCES]);
     MixOverworld.SetSelectedIndex(cvarSettings[RSK_MIX_OVERWORLD_ENTRANCES]);
     MixInteriors.SetSelectedIndex(cvarSettings[RSK_MIX_INTERIOR_ENTRANCES]);
+    MixHideout.SetSelectedIndex(cvarSettings[RSK_MIX_HIDEOUT_ENTRANCES]);
     MixGrottos.SetSelectedIndex(cvarSettings[RSK_MIX_GROTTO_ENTRANCES]);
     DecoupleEntrances.SetSelectedIndex(cvarSettings[RSK_DECOUPLED_ENTRANCES]);
 
