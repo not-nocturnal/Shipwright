@@ -797,32 +797,32 @@ int ShuffleAllEntrances() {
     {{EntranceType::SpecialInterior, KAK_BACKYARD,                     KAK_POTION_SHOP_BACK,                 0x03EC},
      {EntranceType::SpecialInterior, KAK_POTION_SHOP_BACK,             KAK_BACKYARD,                         0x04FF}},
 
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_1_TORCH_JAIL_1_TURN,               0x0486},  // 1F Left
-     {EntranceType::Hideout, TH_1_TORCH_JAIL_1_TURN,           GERUDO_FORTRESS,                      0x0231}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_1_TORCH_JAIL_0_TURNS,              0x048A},  // 1F Behind Crates Left
-     {EntranceType::Hideout, TH_1_TORCH_JAIL_0_TURNS,          GERUDO_FORTRESS,                      0x0235}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_KITCHEN_HALLWAY_LOWER,             0x048E},  // 1F Behind Crates Middle
-     {EntranceType::Hideout, TH_KITCHEN_HALLWAY_LOWER,         GERUDO_FORTRESS,                      0x0239}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_4_TORCH_JAIL_1_TURN,               0x0496},  // 1F Right
-     {EntranceType::Hideout, TH_4_TORCH_JAIL_1_TURN,           GERUDO_FORTRESS,                      0x02BA}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_4_TORCH_JAIL_2_TURNS,              0x049A},  // 2F Left (jump over crates area from right)
-     {EntranceType::Hideout, TH_4_TORCH_JAIL_2_TURNS,          GERUDO_FORTRESS,                      0x02BE}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_KITCHEN_HALLWAY_UPPER,             0x0492},  // 2F Middle (walking)
-     {EntranceType::Hideout, TH_KITCHEN_HALLWAY_UPPER,         GERUDO_FORTRESS,                      0x02AA}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_2_TORCH_JAIL_LOWER,                0x049E},  // 2F Right (walking)
-     {EntranceType::Hideout, TH_2_TORCH_JAIL_LOWER,            GERUDO_FORTRESS,                      0x02C2}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_BREAK_ROOM_LOWER,                  0x04AE},  // 3F Leftmost (jump from jail or 4F w/ hovers/hookshot)
-     {EntranceType::Hideout, TH_BREAK_ROOM_LOWER,              GERUDO_FORTRESS,                      0x02DA}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_3_TORCH_JAIL,                      0x0570},  // 3F Mid-left (jump from 4F)
-     {EntranceType::Hideout, TH_3_TORCH_JAIL,                  GERUDO_FORTRESS,                      0x03A4}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_KITCHEN_LEDGE_NEAR,                0x04A6},  // 3F Mid-right (jump from 4F)
-     {EntranceType::Hideout, TH_KITCHEN_LEDGE_NEAR,            GERUDO_FORTRESS,                      0x02D2}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_2_TORCH_JAIL_UPPER,                0x04A2},  // 3F Rightmost (jump from 4F)
-     {EntranceType::Hideout, TH_2_TORCH_JAIL_UPPER,            GERUDO_FORTRESS,                      0x02C6}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_KITCHEN_LEDGE_FAR,                 0x04AA},  // 4F Middle (??)
-     {EntranceType::Hideout, TH_KITCHEN_LEDGE_FAR,             GERUDO_FORTRESS,                      0x02D6}},
-    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_BREAK_ROOM_UPPER,                  0x04B2},  // Balcony (??)
-     {EntranceType::Hideout, TH_BREAK_ROOM_UPPER,              GERUDO_FORTRESS,                      0x02DE}},
+    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_1_TORCH_JAIL,                      0x0486},  // 1F Left
+     {EntranceType::Hideout, TH_1_TORCH_JAIL,                  GERUDO_FORTRESS,                      0x0231}}, // 1 Torch Jail 1 Turn
+    {{EntranceType::Hideout, GF_ENTRANCES_BEHIND_CRATES,       TH_1_TORCH_JAIL,                      0x048A},  // 1F Behind Crates Left
+     {EntranceType::Hideout, TH_1_TORCH_JAIL,                  GF_ENTRANCES_BEHIND_CRATES,           0x0235}}, // 1 Torch Jail 0 Turns
+    {{EntranceType::Hideout, GF_ENTRANCES_BEHIND_CRATES,       TH_KITCHEN_HALLWAY,                   0x048E},  // 1F Behind Crates Middle
+     {EntranceType::Hideout, TH_KITCHEN_HALLWAY,               GF_ENTRANCES_BEHIND_CRATES,           0x0239}}, // Kitchen Hallway Lower
+    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_4_TORCH_JAIL,                      0x0496},  // 1F Right
+     {EntranceType::Hideout, TH_4_TORCH_JAIL,                  GERUDO_FORTRESS,                      0x02BA}}, // 4 Torch Jail 1 Turn
+    {{EntranceType::Hideout, GF_ROOF_ENTRANCE_CLUSTER,         TH_4_TORCH_JAIL,                      0x049A},  // 2F Left
+     {EntranceType::Hideout, TH_4_TORCH_JAIL,                  GF_ROOF_ENTRANCE_CLUSTER,             0x02BE}}, // 4 Torch Jail 2 Turns
+    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_KITCHEN_HALLWAY,                   0x0492},  // 2F Middle
+     {EntranceType::Hideout, TH_KITCHEN_HALLWAY,               GERUDO_FORTRESS,                      0x02AA}}, // Kitchen Hallway Upper
+    {{EntranceType::Hideout, GERUDO_FORTRESS,                  TH_2_TORCH_JAIL,                      0x049E},  // 2F Right
+     {EntranceType::Hideout, TH_2_TORCH_JAIL,                  GERUDO_FORTRESS,                      0x02C2}}, // 2 Torch Jail Lower
+    {{EntranceType::Hideout, GF_BREAK_ROOM_ENTRANCE,           TH_BREAK_ROOM,                        0x04AE},  // 3F Leftmost
+     {EntranceType::Hideout, TH_BREAK_ROOM,                    GF_BREAK_ROOM_ENTRANCE,               0x02DA}}, // Break Room Lower
+    {{EntranceType::Hideout, GF_3_TORCH_JAIL_EXTERIOR,         TH_3_TORCH_JAIL,                      0x0570},  // 3F Mid-left
+     {EntranceType::Hideout, TH_3_TORCH_JAIL,                  GF_3_TORCH_JAIL_EXTERIOR,             0x03A4}}, // 3 Torch Jail
+    {{EntranceType::Hideout, GF_ROOF_ENTRANCE_CLUSTER,         TH_KITCHEN_FRONT,                     0x04A6},  // 3F Mid-right
+     {EntranceType::Hideout, TH_KITCHEN_FRONT,                 GF_ROOF_ENTRANCE_CLUSTER,             0x02D2}}, // Kitchen Ledge Near
+    {{EntranceType::Hideout, GF_ROOF_ENTRANCE_CLUSTER,         TH_2_TORCH_JAIL,                      0x04A2},  // 3F Rightmost
+     {EntranceType::Hideout, TH_2_TORCH_JAIL,                  GF_ROOF_ENTRANCE_CLUSTER,             0x02C6}}, // 2 Torch Jail Upper
+    {{EntranceType::Hideout, GF_KITCHEN_ROOF_ACCESS,           TH_KITCHEN_REAR,                      0x04AA},  // 4F Middle
+     {EntranceType::Hideout, TH_KITCHEN_REAR,                  GF_KITCHEN_ROOF_ACCESS,               0x02D6}}, // Kitchen Ledge Far
+    {{EntranceType::Hideout, GF_BALCONY,                       TH_HALL_TO_BALCONY,                   0x04B2},  // Balcony
+     {EntranceType::Hideout, TH_HALL_TO_BALCONY,               GF_BALCONY,                           0x02DE}}, // Break Room Upper
 
      // Grotto Loads use an entrance index of 0x0700 + their grotto id. The id is used as index for the
      // grottoLoadTable in soh/soh/Enhancements/randomizer/randomizer_grotto.c

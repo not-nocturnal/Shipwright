@@ -96,140 +96,110 @@ void AreaTable_Init_GerudoValley() {
 
   areaTable[GERUDO_FORTRESS] = Area("Gerudo Fortress", "Gerudo Fortress", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {
                   //Events
-                  EventAccess(&CarpenterRescue, {[]{return CanFinishGerudoFortress;}}),
+                  //EventAccess(&CarpenterRescue, {[]{return CanFinishGerudoFortress;}}),
                   EventAccess(&GF_GateOpen,     {[]{return IsAdult && GerudoToken;}}),
-                  EventAccess(&GtG_GateOpen,    {[]{return GtG_GateOpen || (IsAdult && GerudoToken);}}),
+                  EventAccess(&GtG_GateOpen,    {[]{return GtG_GateOpen || (IsAdult && GerudoToken);}}), 
                 }, {
                   //Locations
-                  LocationAccess(GF_CHEST,              {[]{return CanUse(HOVER_BOOTS) || (IsAdult && CanUse(SCARECROW)) || CanUse(LONGSHOT);}}),
+                  //LocationAccess(GF_CHEST,              {[]{return CanUse(HOVER_BOOTS) || (IsAdult && CanUse(SCARECROW)) || CanUse(LONGSHOT);}}),
                   LocationAccess(GF_HBA_1000_POINTS,    {[]{return GerudoToken && CanRideEpona && Bow && AtDay;}}),
                   LocationAccess(GF_HBA_1500_POINTS,    {[]{return GerudoToken && CanRideEpona && Bow && AtDay;}}),
-                  LocationAccess(GF_NORTH_F1_CARPENTER, {[]{return  IsAdult || KokiriSword || CanUse(MASTER_SWORD) || CanUse(BIGGORON_SWORD);}}),
-                  LocationAccess(GF_NORTH_F2_CARPENTER, {[]{return (IsAdult || KokiriSword || CanUse(MASTER_SWORD) || CanUse(BIGGORON_SWORD)) && (GerudoToken || CanUse(BOW) || CanUse(HOOKSHOT) || CanUse(HOVER_BOOTS) || LogicGerudoKitchen);}}),
-                  LocationAccess(GF_SOUTH_F1_CARPENTER, {[]{return  IsAdult || KokiriSword || CanUse(MASTER_SWORD) || CanUse(BIGGORON_SWORD);}}),
-                  LocationAccess(GF_SOUTH_F2_CARPENTER, {[]{return  IsAdult || KokiriSword || CanUse(MASTER_SWORD) || CanUse(BIGGORON_SWORD);}}),
-                  LocationAccess(GF_GERUDO_MEMBERSHIP_CARD,       {[]{return CanFinishGerudoFortress;}}),
+                  //LocationAccess(GF_NORTH_F1_CARPENTER, {[]{return  IsAdult || KokiriSword || CanUse(MASTER_SWORD) || CanUse(BIGGORON_SWORD);}}),
+                  //LocationAccess(GF_NORTH_F2_CARPENTER, {[]{return (IsAdult || KokiriSword || CanUse(MASTER_SWORD) || CanUse(BIGGORON_SWORD)) && (GerudoToken || CanUse(BOW) || CanUse(HOOKSHOT) || CanUse(HOVER_BOOTS) || LogicGerudoKitchen);}}),
+                  //LocationAccess(GF_SOUTH_F1_CARPENTER, {[]{return  IsAdult || KokiriSword || CanUse(MASTER_SWORD) || CanUse(BIGGORON_SWORD);}}),
+                  //LocationAccess(GF_SOUTH_F2_CARPENTER, {[]{return  IsAdult || KokiriSword || CanUse(MASTER_SWORD) || CanUse(BIGGORON_SWORD);}}),
+                  //LocationAccess(GF_GERUDO_MEMBERSHIP_CARD,       {[]{return CanFinishGerudoFortress;}}),
                   LocationAccess(GF_GS_ARCHERY_RANGE,   {[]{return IsAdult && HookshotOrBoomerang && GerudoToken && AtNight && CanGetNightTimeGS;}}),
-                  LocationAccess(GF_GS_TOP_FLOOR,       {[]{return IsAdult && AtNight && (GerudoToken || CanUse(BOW) || CanUse(HOOKSHOT) || CanUse(HOVER_BOOTS) || LogicGerudoKitchen || LogicGFJump) && CanGetNightTimeGS;}}),
                 }, {
                   //Exits
                   Entrance(GV_FORTRESS_SIDE,                 {[]{return true;}}),
+                  Entrance(TH_1_TORCH_JAIL,                  {[]{return true;}}),
+                  Entrance(TH_2_TORCH_JAIL,                  {[]{return true;}}),
+                  Entrance(TH_4_TORCH_JAIL,                  {[]{return true;}}),
+                  Entrance(TH_KITCHEN_HALLWAY,               {[]{return true;}}),
+                  Entrance(GF_ENTRANCES_BEHIND_CRATES,       {[]{return true;}}),
+                  Entrance(GF_ROOF_ENTRANCE_CLUSTER,         {[]{return LogicGFJump || CanUse(HOVER_BOOTS);}}),
+                  Entrance(GF_KITCHEN_ROOF_ACCESS,           {[]{return GerudoToken && CanUse(LONGSHOT);}}),
+                  //can ask the Gerudo on the path to HBA to throw you in jail
+                  Entrance(GF_BREAK_ROOM_ENTRANCE,           {[]{return CanUse(HOOKSHOT);}}),
                   Entrance(GF_OUTSIDE_GATE,                  {[]{return GF_GateOpen;}}),
-                  Entrance(GERUDO_TRAINING_GROUNDS_ENTRYWAY, {[]{return GtG_GateOpen && (IsAdult || ShuffleDungeonEntrances);}}),
-                  Entrance(GF_STORMS_GROTTO,                 {[]{return IsAdult && CanOpenStormGrotto;}}),
-                  //Entrance(GF_1F_LEFT,                       {[]{return true;}}),
-                  //Entrance(GF_1F_BEHIND_CRATES_LEFT,         {[]{return true;}}),
-                  //Entrance(GF_1F_BEHIND_CRATES_MIDDLE,       {[]{return true;}}),
-                  //Entrance(GF_1F_RIGHT,                      {[]{return true;}}),
-                  //Entrance(GF_2F_LEFT,                       {[]{return true;}}),
-                  //Entrance(GF_2F_MIDDLE,                     {[]{return true;}}),
-                  //Entrance(GF_2F_RIGHT,                      {[]{return true;}}),
-                  //Entrance(GF_3F_LEFTMOST,                   {[]{return true;}}),
-                  //Entrance(GF_3F_MID_LEFT,                   {[]{return true;}}),
-                  //Entrance(GF_3F_MID_RIGHT,                  {[]{return true;}}),
-                  //Entrance(GF_3F_RIGHTMOST,                  {[]{return true;}}),
-                  //Entrance(GF_4F_MIDDLE,                     {[]{return true;}}),
-                  //Entrance(GF_BALCONY,                       {[]{return true;}}),
-                  Entrance(TH_1_TORCH_JAIL_1_TURN,           {[]{return true;}}),
-                  Entrance(TH_1_TORCH_JAIL_0_TURNS,          {[]{return true;}}),
-                  Entrance(TH_2_TORCH_JAIL_LOWER,            {[]{return true;}}),
-                  Entrance(TH_2_TORCH_JAIL_UPPER,            {[]{return true;}}),
-                  Entrance(TH_3_TORCH_JAIL,                  {[]{return true;}}),
-                  Entrance(TH_4_TORCH_JAIL_1_TURN,           {[]{return true;}}),
-                  Entrance(TH_4_TORCH_JAIL_2_TURNS,          {[]{return true;}}),
-                  Entrance(TH_KITCHEN_HALLWAY_LOWER,         {[]{return true;}}),
-                  Entrance(TH_KITCHEN_HALLWAY_UPPER,         {[]{return true;}}),
-                  Entrance(TH_KITCHEN_LEDGE_NEAR,            {[]{return true;}}),
-                  Entrance(TH_KITCHEN_LEDGE_FAR,             {[]{return true;}}),
-                  Entrance(TH_BREAK_ROOM_LOWER,              {[]{return true;}}),
-                  Entrance(TH_BREAK_ROOM_UPPER,              {[]{return true;}}),
+                  Entrance(GERUDO_TRAINING_GROUNDS_ENTRYWAY, {[]{return GtG_GateOpen && (IsAdult || ShuffleDungeonEntrances);}}), //Shouldn't this just be GtG_GateOpen?
   });
 
-  areaTable[TH_1_TORCH_JAIL_1_TURN] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
+ // Needs to be a separate region to disambiguate the 1 torch jail and kitchen entrances
+ areaTable[GF_ENTRANCES_BEHIND_CRATES] = Area("GF Entrances Behind Crates", "Gerudo Fortress", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
                   //Exits
-                  Entrance(TH_1_TORCH_JAIL_0_TURNS,          {[]{return true;}}),
                   Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
-  });
-
-  areaTable[TH_1_TORCH_JAIL_0_TURNS] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
-                  //Exits
-                  Entrance(TH_1_TORCH_JAIL_1_TURN,           {[]{return true;}}),
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
+                  Entrance(TH_1_TORCH_JAIL,                  {[]{return true;}}),
+                  Entrance(TH_KITCHEN_HALLWAY,               {[]{return true;}}),
+                  Entrance(GF_ROOF_ENTRANCE_CLUSTER,         {[]{return CanUse(LONGSHOT);}}),
+                  Entrance(GF_STORMS_GROTTO,                 {[]{return IsAdult && CanOpenStormGrotto;}}), //Not there as child
   });
   
-  areaTable[TH_2_TORCH_JAIL_LOWER] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
+ areaTable[GF_ROOF_ENTRANCE_CLUSTER] = Area("GF Roof Entrance Cluster", "Gerudo Fortress", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
                   //Exits
-                  Entrance(TH_2_TORCH_JAIL_UPPER,            {[]{return true;}}),
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
+                  Entrance(TH_4_TORCH_JAIL,                  {[]{return true;}}),
+                  Entrance(TH_2_TORCH_JAIL,                  {[]{return true;}}),
+                  Entrance(TH_KITCHEN_REAR,                  {[]{return true;}}),
+                  Entrance(GF_ENTRANCES_BEHIND_CRATES,       {[]{return true;}}),
+                  Entrance(GF_KITCHEN_ROOF_ACCESS,           {[]{return LogicGFJump && IsAdult;}}),
   });
 
-  areaTable[TH_2_TORCH_JAIL_UPPER] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
+ areaTable[GF_KITCHEN_ROOF_ACCESS] = Area("GF Kitchen Roof Access", "Gerudo Fortress", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {
+                  //Locations
+                  LocationAccess(GF_GS_TOP_FLOOR,            {[]{return (IsAdult && AtNight && CanGetNightTimeGS && (CanUseProjectile || CanJumpslash || CanUse(DINS_FIRE))) || 
+                                                             Here(GF_3_TORCH_JAIL_EXTERIOR, []{return IsAdult && AtNight && CanGetNightTimeGS && CanUse(LONGSHOT);});}}),
+        }, {
                   //Exits
-                  Entrance(TH_2_TORCH_JAIL_LOWER,            {[]{return true;}}),
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
+                  Entrance(TH_KITCHEN_REAR,                  {[]{return true;}}),
+                  Entrance(GF_3_TORCH_JAIL_EXTERIOR,         {[]{return true;}}),
+                  Entrance(GF_CHEST_ROOF,                    {[]{return IsAdult && (CanUse(HOVER_BOOTS) || CanUse(SCARECROW) || CanUse(LONGSHOT));}}),
   });
 
-  areaTable[TH_3_TORCH_JAIL] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
+ areaTable[GF_3_TORCH_JAIL_EXTERIOR] = Area("GF 3 Torch Jail Exterior", "Gerudo Fortress", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
                   //Exits
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
+                  Entrance(TH_3_TORCH_JAIL,                  {[]{return true;}}),
+                  Entrance(GF_ROOF_ENTRANCE_CLUSTER,         {[]{return true;}}),
   });
 
-  areaTable[TH_4_TORCH_JAIL_1_TURN] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
+ areaTable[GF_CHEST_ROOF] = Area("GF Chest Roof", "Gerudo Fortress", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {
+                  //Locations
+                  LocationAccess(GF_CHEST,                   {[]{return true;}}),
+         }, {
                   //Exits
-                  Entrance(TH_4_TORCH_JAIL_2_TURNS,          {[]{return true;}}),
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
+                  Entrance(GF_KITCHEN_ROOF_ACCESS,           {[]{return true;}}),
+                  Entrance(GF_BREAK_ROOM_ENTRANCE,           {[]{return true;}}),
   });
 
-  areaTable[TH_4_TORCH_JAIL_2_TURNS] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
+ areaTable[GF_BREAK_ROOM_ENTRANCE] = Area("GF Break Room Entrance", "Gerudo Fortress", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
                   //Exits
-                  Entrance(TH_4_TORCH_JAIL_1_TURN,           {[]{return true;}}),
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
+                  Entrance(GERUDO_FORTRESS,           {[]{return true;}}),
+                  Entrance(TH_BREAK_ROOM,             {[]{return true;}}),
   });
 
-  areaTable[TH_KITCHEN_HALLWAY_LOWER] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
+  areaTable[GF_BALCONY] = Area("GF Balcony", "Gerudo Fortress", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {
+                  //Locations
+                  //LocationAccess(GF_ABOVE_JAIL_CRATE, {[]{return IsAdult && CanBreakCrate;}}),
+      }, {
                   //Exits
-                  Entrance(TH_KITCHEN_HALLWAY_UPPER,         {[]{return true;}}),
-                  Entrance(TH_KITCHEN_LEDGE_NEAR,            {[]{return true;}}),
-                  Entrance(TH_KITCHEN_LEDGE_FAR,             {[]{return true;}}),
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
+                  Entrance(TH_HALL_TO_BALCONY,        {[]{return true;}}),
+                  Entrance(GERUDO_FORTRESS,           {[]{return true;}}),
+                  Entrance(GF_CHEST_ROOF,             {[]{return CanUse(LONGSHOT);}}),
+                  Entrance(GF_BREAK_ROOM_ENTRANCE,    {[]{return true;}}), //damage multiplier != 'ohko' or CanUse(NAYRUS_LOVE)
   });
-
-  areaTable[TH_KITCHEN_HALLWAY_UPPER] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
+ // THESE NEED DOING Å´Å´Å´Å´
+ // https://github.com/fenhl/OoT-Randomizer/blob/321290e9feec5ffc2d7a0be51f64911305f0bd2a/data/World/Overworld.json#L753C12-L753C12
+ // TH_1_TORCH_JAIL, TH_2_TORCH_JAIL, TH_3_TORCH_JAIL, TH_4_TORCH_JAIL, TH_KITCHEN_HALLWAY, TH_KITCHEN_FRONT, TH_KITCHEN_REAR, TH_BREAK_ROOM, TH_HALL_TO_BALCONY
+ // with the logic/locations/exits from that page translated to this randomizer's format
+ // exits first, do crates/pots/carpenters last
+  areaTable[TH_1_TORCH_JAIL] = Area("TH 1 Torch Jail", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {
+      }, {
                   //Exits
-                  Entrance(TH_KITCHEN_HALLWAY_LOWER,         {[]{return true;}}),
-                  Entrance(TH_KITCHEN_LEDGE_NEAR,            {[]{return true;}}),
-                  Entrance(TH_KITCHEN_LEDGE_FAR,             {[]{return true;}}),
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
-  });
+                  Entrance(GERUDO_FORTRESS,                   {[]{return true;}}),
+                  Entrance(TH_1_TORCH_JAIL,                   {[]{return true;}}),
 
-  areaTable[TH_KITCHEN_LEDGE_NEAR] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
-                  //Exits
-                  Entrance(TH_KITCHEN_HALLWAY_LOWER,         {[]{return true;}}),
-                  Entrance(TH_KITCHEN_HALLWAY_UPPER,         {[]{return true;}}),
-                  Entrance(TH_KITCHEN_LEDGE_FAR,             {[]{return true;}}),
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
   });
-
-  areaTable[TH_KITCHEN_LEDGE_FAR] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
-                  //Exits
-                  Entrance(TH_KITCHEN_HALLWAY_LOWER,         {[]{return true;}}),
-                  Entrance(TH_KITCHEN_HALLWAY_UPPER,         {[]{return true;}}),
-                  Entrance(TH_KITCHEN_LEDGE_NEAR,            {[]{return true;}}),
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
-  });
-
-  areaTable[TH_BREAK_ROOM_LOWER] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
-                  //Exits
-                  Entrance(TH_BREAK_ROOM_UPPER,              {[]{return true;}}),
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
-  });
-
-  areaTable[TH_BREAK_ROOM_UPPER] = Area("Thieves' Hideout", "Thieves' Hideout", GERUDO_FORTRESS, NO_DAY_NIGHT_CYCLE, {}, {}, {
-                  //Exits
-                  Entrance(TH_BREAK_ROOM_LOWER,              {[]{return true;}}),
-                  Entrance(GERUDO_FORTRESS,                  {[]{return true;}}),
-  });
-
+  
   areaTable[GF_OUTSIDE_GATE] = Area("GF Outside Gate", "Gerudo Fortress", NONE, NO_DAY_NIGHT_CYCLE, {
                   //Events
                   EventAccess(&GF_GateOpen, {[]{return IsAdult && GerudoToken && (ShuffleGerudoToken || ShuffleOverworldEntrances /*|| ShuffleSpecialIndoorEntrances*/);}}),
